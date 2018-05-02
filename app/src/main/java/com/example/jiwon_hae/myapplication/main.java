@@ -1,7 +1,10 @@
 package com.example.jiwon_hae.myapplication;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.media.Image;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,10 +15,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.jiwon_hae.myapplication.call.calling;
+import com.example.jiwon_hae.myapplication.tmap.map_navigation;
+import com.example.jiwon_hae.myapplication.tmap.tmap;
 
 public class main extends AppCompatActivity {
-    private ImageButton unlock_btn;
+    private ImageButton alcohol_btn;
+    private ImageButton navigation_btn;
     private ImageButton call_btn;
     private ImageButton alarm_btn;
     private ImageView lock_main_screen;
@@ -30,72 +37,45 @@ public class main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
-        this.setBackgroundImage();
         this.setImageButtons();
-        this.manage_locking_motion();
-
         // Example of a call to a native method
 
     }
 
-    private void setBackgroundImage(){
-        this.lock_main_screen = (ImageView)findViewById(R.id.lock_page_background);
-        Glide.with(this)
-                .load(R.drawable.background_sample1)
-                .into(lock_main_screen);
-    }
-
     private void setImageButtons(){
-        this.call_btn = (ImageButton)findViewById(R.id.lock_pg_call_btn);
+        this.alcohol_btn = (ImageButton)findViewById(R.id.set_alocohol_imageButton);
         Glide.with(this)
-                .load(R.drawable.call_icon)
+                .load(R.drawable.beer_icon)
                 .thumbnail(0.1f)
-                .into(call_btn);
+                .into(alcohol_btn);
 
-        this.call_btn.setOnClickListener(new View.OnClickListener() {
+        this.alcohol_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(main.this, "alcohol", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        this.navigation_btn = (ImageButton)findViewById(R.id.set_navigation_imageButton);
+        Glide.with(this)
+                .load(R.drawable.navigation_icon)
+                .thumbnail(0.1f)
+                .into(navigation_btn);
+
+        this.navigation_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(main.this, "call", Toast.LENGTH_SHORT).show();
-                Intent to_call = new Intent(main.this, calling.class);
-                startActivity(to_call);
-
+                //Intent to_call = new Intent(main.this, calling.class);
+                Intent to_navigation = new Intent(main.this, map_navigation.class);
+                startActivity(to_navigation);
 
             }
         });
-
-        this.alarm_btn = (ImageButton)findViewById(R.id.lock_pg_alarm);
-        Glide.with(this)
-                .load(R.drawable.alarm_icon)
-                .thumbnail(0.1f)
-                .into(alarm_btn);
-
-        this.alarm_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(main.this, "alarm", Toast.LENGTH_SHORT).show();
-            }
-        });
-
 
     }
 
-    private void manage_locking_motion(){
-        this.unlock_btn = (ImageButton) findViewById(R.id.lock_pg_unlock);
-        Glide.with(this)
-                .load(R.drawable.lock_icon)
-                .thumbnail(0.1f)
-                .into(unlock_btn);
-
-
-        this.unlock_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(main.this, "unlock", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
 
 
     /**
