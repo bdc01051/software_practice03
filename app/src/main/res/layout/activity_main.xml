@@ -1,51 +1,284 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.jiwon_hae.myapplication.main"
-    android:background="#000000">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/lock_page_background"/>
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical">
 
-        <android.support.v4.widget.Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="7"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="8">
+
+            <Space
+                android:layout_width="2mm"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Application "
+                android:textSize="20dp"
+                android:textColor="@color/orange"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textColor="@color/dark_gray"
+                android:textSize="20dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/user_profile_picture"
+                android:layout_width="5mm"
+                android:layout_height="5mm" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8.5"
+        android:orientation="vertical"
+        android:gravity="center">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="3"
-            android:orientation="vertical">
+            android:layout_weight="5"
+            android:orientation="vertical"
+            android:background="@color/main_color">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today's schedule"
+                android:textColor="@color/text_blue"
+                android:textSize="20dp"
+                android:gravity="bottom"
+                android:layout_gravity="center_horizontal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center">
 
                 <Space
                     android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+                </Space>
+
+                <TextView
+                    android:id="@+id/schedule_time_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "00:00"
+                    android:textColor="@color/text_blue"
+                    android:textSize="90dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/schedule_time_AMPM_textView"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"/>
+                    android:gravity="bottom"
+                    android:text = "AM"
+                    android:textColor="@color/text_blue"
+                    android:textSize="20dp"
+                    android:layout_alignRight="@+id/schedule_time_textView"
+                    android:layout_alignBottom="@+id/schedule_time_textView"/>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="1mm" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="7"
+                    android:layout_height="wrap_content"
+                    android:text="This week"
+                    android:layout_gravity="bottom"/>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="match_parent" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_btn_sunday"
+                    android:layout_width="0dp"
+                    android:layout_height="8mm"
+                    android:layout_weight="1"
+                    android:textOff="S"
+                    android:textOn="S"
+                    android:textColor="@color/toggle_btn_weekends"
+                    android:background="@color/transparent"/>
+
+                <ToggleButton
+                    android:id="@+id/toggle_btn_monday"
+                    android:layout_width="0dp"
+                    android:layout_height="8mm"
+                    android:layout_weight="1"
+                    android:textColor="@color/toggle_btn"
+                    android:background="@color/transparent"
+                    android:textOff="M"
+                    android:textOn="M"/>
+
+                <ToggleButton
+                    android:id="@+id/toggle_btn_tuesday"
+                    android:layout_width="0dp"
+                    android:layout_height="8mm"
+                    android:layout_weight="1"
+                    android:textColor="@color/toggle_btn"
+                    android:background="@color/transparent"
+                    android:textOff="T"
+                    android:textOn="T"/>
+
+                <ToggleButton
+                    android:id="@+id/toggle_btn_wednesday"
+                    android:layout_width="0dp"
+                    android:layout_height="8mm"
+                    android:layout_weight="1"
+                    android:textColor="@color/toggle_btn"
+                    android:background="@color/transparent"
+                    android:textOff="W"
+                    android:textOn="W" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_btn_thursday"
+                    android:layout_width="0dp"
+                    android:layout_height="8mm"
+                    android:layout_weight="1"
+                    android:textColor="@color/toggle_btn"
+                    android:background="@color/transparent"
+                    android:textOff="T"
+                    android:textOn="T"/>
+
+                <ToggleButton
+                    android:id="@+id/toggle_btn_friday"
+                    android:layout_width="0dp"
+                    android:layout_height="8mm"
+                    android:layout_weight="1"
+                    android:textColor="@color/toggle_btn"
+                    android:background="@color/transparent"
+                    android:textOff="F"
+                    android:textOn="F"/>
+
+                <ToggleButton
+                    android:id="@+id/toggle_btn_saturday"
+                    android:layout_width="0dp"
+                    android:layout_height="8mm"
+                    android:layout_weight="1"
+                    android:textColor="@color/toggle_btn_weekends"
+                    android:background="@color/transparent"
+                    android:textOff="S"
+                    android:textOn="S"/>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3.5"
+            android:layout_gravity="center_horizontal|bottom">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="5"
-                    android:gravity="center"
-                    android:layout_gravity="center">
+                    android:orientation="horizontal"
+                    android:background="@color/main_color">
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_weight="0.5"
+                        android:layout_height="match_parent" />
+
+                    <ListView
+                        android:id="@+id/schedule_listView"
+                        android:layout_width="0dp"
+                        android:layout_weight="7"
+                        android:layout_height="match_parent">
+
+                    </ListView>
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_weight="0.5"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2.5">
 
                     <Space
                         android:layout_width="0dp"
@@ -53,12 +286,13 @@
                         android:layout_height="match_parent" />
 
                     <ImageButton
-                        android:id="@+id/lock_pg_call_btn"
-                        android:layout_width="7mm"
-                        android:layout_height="7mm"
-                        android:background="@drawable/call_round_btn"
-                        android:scaleType="fitXY"
-                        android:padding="1.5mm"/>
+                        android:id="@+id/set_alocohol_imageButton"
+                        android:layout_width="8mm"
+                        android:layout_height="8mm"
+                        android:padding="2mm"
+                        android:layout_gravity="center"
+                        android:scaleType="centerInside"
+                        android:background="@drawable/main_navigation_btn"/>
 
                     <Space
                         android:layout_width="0dp"
@@ -66,12 +300,13 @@
                         android:layout_height="match_parent" />
 
                     <ImageButton
-                        android:id="@+id/lock_pg_alarm"
-                        android:layout_width="7mm"
-                        android:layout_height="7mm"
-                        android:background="@drawable/call_round_btn"
-                        android:scaleType="fitXY"
-                        android:padding="1.5mm"/>
+                        android:id="@+id/set_faceTalk_imageButton"
+                        android:layout_width="8mm"
+                        android:layout_height="8mm"
+                        android:layout_gravity="center"
+                        android:scaleType="centerInside"
+                        android:padding="2mm"
+                        android:background="@drawable/main_navigation_btn"/>
 
                     <Space
                         android:layout_width="0dp"
@@ -79,12 +314,13 @@
                         android:layout_height="match_parent" />
 
                     <ImageButton
-                        android:id="@+id/lock_pg_alarm1"
-                        android:layout_width="7mm"
-                        android:layout_height="7mm"
-                        android:background="@drawable/call_round_btn"
-                        android:scaleType="fitXY"
-                        android:padding="1.5mm"/>
+                        android:id="@+id/set_navigation_imageButton"
+                        android:layout_width="8mm"
+                        android:layout_height="8mm"
+                        android:layout_gravity="center"
+                        android:padding="2mm"
+                        android:scaleType="centerInside"
+                        android:background="@drawable/main_navigation_btn"/>
 
                     <Space
                         android:layout_width="0dp"
@@ -93,34 +329,21 @@
 
                 </LinearLayout>
 
-                <Space
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"/>
-
-
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center">
+            <Button
+                android:layout_width="9mm"
+                android:layout_height="9mm"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="10.3mm"
+                android:text="TIME"
 
-                <ImageButton
-                    android:id="@+id/lock_pg_unlock"
-                    android:layout_width="7mm"
-                    android:layout_height="7mm"
-                    android:background="@color/transparent"
-                    android:scaleType="fitXY"
-                    android:padding="1.2mm"
-                    android:layout_marginBottom="2mm"/>
+                android:textColor="@color/white"
+                android:background="@drawable/set_time_round_btn"/>
 
-            </LinearLayout>
-        </LinearLayout>
+        </FrameLayout>
+
+
     </LinearLayout>
-
-
-
-
-</FrameLayout>
+</LinearLayout>
