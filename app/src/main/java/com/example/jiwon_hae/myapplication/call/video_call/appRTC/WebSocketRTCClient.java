@@ -38,8 +38,6 @@ public class WebSocketRTCClient implements AppRTCClient, WebSocketChannelClient.
   private static final String ROOM_MESSAGE = "message";
   private static final String ROOM_LEAVE = "leave";
 
-  int ab = 12355;
-
   private enum ConnectionState { NEW, CONNECTED, CLOSED, ERROR }
 
   private enum MessageType { MESSAGE, LEAVE }

@@ -34,10 +34,7 @@ public class calling extends AppCompatActivity {
                 .load(R.drawable.delete_icon)
                 .thumbnail(0.1f)
                 .into(delete_button);
-
         this.set_calling();
-
-
     }
 
     private void set_calling() {
@@ -48,7 +45,7 @@ public class calling extends AppCompatActivity {
 
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                Toast.makeText(calling.this, "before", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -66,6 +63,7 @@ public class calling extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
+
             }
         });
     }

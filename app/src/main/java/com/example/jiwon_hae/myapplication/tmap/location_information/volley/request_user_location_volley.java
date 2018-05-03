@@ -1,4 +1,4 @@
-package com.example.jiwon_hae.myapplication.tmap.user_user_location;
+package com.example.jiwon_hae.myapplication.tmap.location_information.volley;
 
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
@@ -11,11 +11,11 @@ import java.util.Map;
  */
 
 public class request_user_location_volley extends StringRequest {
-    private static final String URL = "Location URL";
+    private static final String request_address = "http://13.125.170.236";
     private Map<String, String> paramters = new HashMap();
 
     public request_user_location_volley(String user_id, Response.Listener<String> listener) {
-        super(1, URL, listener, null);
+        super(1, request_address, listener, null);
         this.paramters.put("user_email", user_id);
     }
 

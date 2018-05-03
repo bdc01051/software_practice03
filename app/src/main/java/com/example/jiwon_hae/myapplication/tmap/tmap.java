@@ -38,7 +38,8 @@ import com.skt.Tmap.TMapGpsManager;
 import com.skt.Tmap.TMapMarkerItem;
 import com.skt.Tmap.TMapPoint;
 import com.skt.Tmap.TMapTapi;
-import com.skt.Tmap.TMapView;
+
+import com.google.android.gms.maps.MapView;
 
 /**
  * Created by jiwon_hae on 2018. 5. 1..
@@ -55,23 +56,16 @@ public class tmap {
     private ArrayList<String> mArrayMarkerID = new ArrayList<String>();
     private ArrayList<LatLng> mapPoints = new ArrayList<>();
     private TMapGpsManager gps = null;
-    private TMapView mMapView;
+    private MapView mMapView;
 
     private LocationListener locationListener;
-
-    public tmap(Context context, TMapView mMapView) {
+/*
+    public tmap(Context context, MapView mMapView) {
         this.mContext = context;
         TMapTapi tmaptapi = new TMapTapi(mContext);
         tmaptapi.setSKTMapAuthentication(TMAPApiKey);
         this.mMarkerID = 0;
         this.mMapView = mMapView;
-
-        gps = new TMapGpsManager(mContext);
-        gps.setMinTime(1000);
-        gps.setMinDistance(5);
-        gps.setProvider(gps.NETWORK_PROVIDER);
-        gps.OpenGps();
-        mMapView.setTMapLogoPosition(TMapView.TMapLogoPositon.POSITION_BOTTOMRIGHT);
 
         locationListener = new LocationListener() {
             public void onLocationChanged(Location location) {
@@ -87,64 +81,7 @@ public class tmap {
             public void onProviderDisabled(String provider) {
             }
         };
-    }
-
-    public void setCurrentLocationPoint(double Latitude, double Longitude) {
-        double latitude = Latitude;
-        double longitude = Longitude;
-
-        TMapPoint user_point = new TMapPoint(latitude, longitude);
-
-        TMapMarkerItem item1 = new TMapMarkerItem();
-
-        //bitmap = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.i_location);
-
-        item1.setTMapPoint(user_point);
-        item1.setName("내 위치");
-        item1.setVisible(item1.VISIBLE);
-        //item1.setIcon(bitmap);
-
-        String strID = String.format("pmarker%d", mMarkerID++);
-        mMapView.addMarkerItem(strID, item1);
-        mArrayMarkerID.add(strID);
-
-    }
-
-    private void removeMarker() {
-        if (mArrayMarkerID.size() <= 0)
-            return;
-
-        String strMarkerID = mArrayMarkerID.get(mArrayMarkerID.size() - 1);
-        //mMapView.removeMarkerItem(strMarkerID);
-        mArrayMarkerID.remove(mArrayMarkerID.size() - 1);
-    }
-
-    private LatLng getCurrentLocation() {
-        Location location;
-
-        LocationManager locationManager = (LocationManager) mContext.getSystemService(mContext.LOCATION_SERVICE);
-
-        boolean isNetworkEnabled = locationManager.isProviderEnabled("network");
-        boolean isGPSEnabled = locationManager.isProviderEnabled("gps");
-
-        if (isNetworkEnabled) {
-            locationManager.requestLocationUpdates("network", 100, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT, this.locationListener);
-
-            if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
-                return user_current_location;
-            }
-            location = locationManager.getLastKnownLocation("network");
-            this.user_current_location = new LatLng(location.getLatitude(), location.getLongitude());
-        } else if (isGPSEnabled) {
-            locationManager.requestLocationUpdates("gps", 100, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT, this.locationListener);
-            location = locationManager.getLastKnownLocation("gps");
-            this.user_current_location = new LatLng(location.getLatitude(), location.getLongitude());
-        }
-        
-        return this.user_current_location;
-    }
-
+    }*/
 
     public ArrayList<LatLng> getLocationData (final String nav_type, final LatLng startPoint, final LatLng endPoint) {
         HttpClient httpClient = new DefaultHttpClient();

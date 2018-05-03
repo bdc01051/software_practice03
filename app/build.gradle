@@ -15,6 +15,7 @@ android {
                 cppFlags ""
             }
         }
+        useLibrary 'org.apache.http.legacy'
     }
     buildTypes {
         release {
@@ -27,11 +28,13 @@ android {
             path "CMakeLists.txt"
         }
     }
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile files('libs/audio_device_java.jar')
     compile files('libs/autobanh.jar')
     compile files('libs/base_java.jar')
@@ -39,12 +42,16 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile files('libs/com.skt.Tmap_1.52.jar')
 
     compile 'com.pubnub:pubnub-android:3.7.4'
+    compile 'com.google.http-client:google-http-client-android:+'
+    compile 'com.google.api-client:google-api-client-android:+'
+    compile 'com.google.api-client:google-api-client-gson:+'
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.android.volley:volley:1.0.0'
-    compile 'com.pubnub:pubnub-android:3.7.4'
+    compile 'com.google.android.gms:play-services-maps:10.0.1'
     testCompile 'junit:junit:4.12'
 }
