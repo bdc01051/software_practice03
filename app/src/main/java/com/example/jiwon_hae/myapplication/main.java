@@ -15,18 +15,25 @@ import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.bumptech.glide.signature.StringSignature;
 import com.example.jiwon_hae.myapplication.call.calling;
+import com.example.jiwon_hae.myapplication.schedule.at_main.main_listview_adapter;
+import com.example.jiwon_hae.myapplication.schedule.schedule;
 import com.example.jiwon_hae.myapplication.tmap.map_navigation;
 import com.example.jiwon_hae.myapplication.tmap.tmap;
+
+import java.util.ArrayList;
 
 import static com.example.jiwon_hae.myapplication.utility.PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION;
 
@@ -54,6 +61,13 @@ public class main extends AppCompatActivity {
 
         utility Utility = new utility();
         Utility.RequestPermission(this);
+
+        setToggleButtons();
+
+        ListView main_schedule_display = (ListView)findViewById(R.id.schedule_listView);
+        main_listview_adapter main_display_adapter = new main_listview_adapter(this);
+        main_schedule_display.setAdapter(main_display_adapter);
+
         // Example of a call to a native method
     }
 
@@ -69,7 +83,8 @@ public class main extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(main.this, "alcohol", Toast.LENGTH_SHORT).show();
-
+                Intent to_set_schedule = new Intent(main.this, schedule.class);
+                startActivity(to_set_schedule);
             }
         });
 
@@ -93,8 +108,110 @@ public class main extends AppCompatActivity {
 
     }
 
-    private void setToggleButtonActions(){
+    private ArrayList<ToggleButton> toggleButtonArrayList = new ArrayList<>();
 
+    private void setToggleButtons(){
+        ToggleButton sunday = (ToggleButton)findViewById(R.id.toggle_btn_sunday);
+        ToggleButton monday = (ToggleButton)findViewById(R.id.toggle_btn_monday);
+        ToggleButton tuesday = (ToggleButton)findViewById(R.id.toggle_btn_tuesday);
+        ToggleButton wednesday = (ToggleButton)findViewById(R.id.toggle_btn_wednesday);
+        ToggleButton thursday = (ToggleButton)findViewById(R.id.toggle_btn_thursday);
+        ToggleButton friday = (ToggleButton)findViewById(R.id.toggle_btn_friday);
+        ToggleButton saturday = (ToggleButton)findViewById(R.id.toggle_btn_saturday);
+
+        toggleButtonArrayList.add(sunday);
+        toggleButtonArrayList.add(monday);
+        toggleButtonArrayList.add(tuesday);
+        toggleButtonArrayList.add(wednesday);
+        toggleButtonArrayList.add(thursday);
+        toggleButtonArrayList.add(friday);
+        toggleButtonArrayList.add(saturday);
+
+    }
+
+    private void check_off_toggleButtons(String days, ArrayList<ToggleButton> toggleButtons){
+        switch(days) {
+            case "sun":
+                for(int i = 0; i < toggleButtons.size() ; i++){
+                    if(i != 0){
+                        toggleButtons.get(i).setChecked(false);
+                    }
+                }
+                break;
+            case "mon":
+                for(int i = 0; i < toggleButtons.size() ; i++){
+                    if(i != 1){
+                        toggleButtons.get(i).setChecked(false);
+                    }
+                }
+                break;
+            case "tues":
+                for(int i = 0; i < toggleButtons.size() ; i++){
+                    if(i != 2){
+                        toggleButtons.get(i).setChecked(false);
+                    }
+                }
+                break;
+            case "wed":
+                for(int i = 0; i < toggleButtons.size() ; i++){
+                    if(i != 3){
+                        toggleButtons.get(i).setChecked(false);
+                    }
+                }
+                break;
+            case "thurs":
+                for(int i = 0; i < toggleButtons.size() ; i++){
+                    if(i != 4){
+                        toggleButtons.get(i).setChecked(false);
+                    }
+                }
+                break;
+            case "fri":
+                for(int i = 0; i < toggleButtons.size() ; i++){
+                    if(i != 5){
+                        toggleButtons.get(i).setChecked(false);
+                    }
+                }
+                break;
+            case "sat":
+                for(int i = 0; i < toggleButtons.size() ; i++){
+                    if(i != 6){
+                        toggleButtons.get(i).setChecked(false);
+                    }
+                }
+                break;
+
+        }
+    }
+
+    public void setToggleActions(View view){
+        ToggleButton s = (ToggleButton) view;
+        boolean isChecked = s.isChecked();
+
+        switch (view.getId()){
+            case R.id.toggle_btn_sunday:
+                check_off_toggleButtons("sun", toggleButtonArrayList);
+                break;
+            case R.id.toggle_btn_monday:
+                check_off_toggleButtons("mon", toggleButtonArrayList);
+                break;
+            case R.id.toggle_btn_tuesday:
+                check_off_toggleButtons("tues", toggleButtonArrayList);
+                break;
+            case R.id.toggle_btn_wednesday:
+                check_off_toggleButtons("wed", toggleButtonArrayList);
+                break;
+            case R.id.toggle_btn_thursday:
+                check_off_toggleButtons("thurs", toggleButtonArrayList);
+                break;
+            case R.id.toggle_btn_friday:
+                check_off_toggleButtons("fri", toggleButtonArrayList);
+                break;
+            case R.id.toggle_btn_saturday:
+                check_off_toggleButtons("sat", toggleButtonArrayList);
+                break;
+
+        }
 
     }
 

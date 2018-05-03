@@ -288,8 +288,6 @@ public class map_navigation extends AppCompatActivity implements OnMapReadyCallb
                     int code = response.getStatusLine().getStatusCode();
                     String message = response.getStatusLine().getReasonPhrase();
 
-                    Log.e("test", message);
-
                     if (response.getEntity() != null) {
                         String responseString = EntityUtils.toString(response.getEntity(), Key.STRING_CHARSET_NAME);
                         String strData = "";
