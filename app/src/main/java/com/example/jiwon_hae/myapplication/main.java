@@ -40,9 +40,10 @@ import static com.example.jiwon_hae.myapplication.utility.PERMISSIONS_REQUEST_AC
 public class main extends AppCompatActivity {
     private ImageButton alcohol_btn;
     private ImageButton navigation_btn;
-    private ImageButton call_btn;
-    private ImageButton alarm_btn;
-    private ImageView lock_main_screen;
+
+    //Listview
+    main_listview_adapter main_display_adapter;
+
 
     //Permission
     private static int REQUEST_LOCATION_PERMISSION = 1;
@@ -65,7 +66,7 @@ public class main extends AppCompatActivity {
         setToggleButtons();
 
         ListView main_schedule_display = (ListView)findViewById(R.id.schedule_listView);
-        main_listview_adapter main_display_adapter = new main_listview_adapter(this);
+        main_display_adapter = new main_listview_adapter(this);
         main_schedule_display.setAdapter(main_display_adapter);
 
         // Example of a call to a native method
@@ -191,24 +192,31 @@ public class main extends AppCompatActivity {
         switch (view.getId()){
             case R.id.toggle_btn_sunday:
                 check_off_toggleButtons("sun", toggleButtonArrayList);
+                main_display_adapter.update_schedule_display(view.getTag().toString());
                 break;
             case R.id.toggle_btn_monday:
                 check_off_toggleButtons("mon", toggleButtonArrayList);
+                main_display_adapter.update_schedule_display(view.getTag().toString());
                 break;
             case R.id.toggle_btn_tuesday:
                 check_off_toggleButtons("tues", toggleButtonArrayList);
+                main_display_adapter.update_schedule_display(view.getTag().toString());
                 break;
             case R.id.toggle_btn_wednesday:
                 check_off_toggleButtons("wed", toggleButtonArrayList);
+                main_display_adapter.update_schedule_display(view.getTag().toString());
                 break;
             case R.id.toggle_btn_thursday:
                 check_off_toggleButtons("thurs", toggleButtonArrayList);
+                main_display_adapter.update_schedule_display(view.getTag().toString());
                 break;
             case R.id.toggle_btn_friday:
                 check_off_toggleButtons("fri", toggleButtonArrayList);
+                main_display_adapter.update_schedule_display(view.getTag().toString());
                 break;
             case R.id.toggle_btn_saturday:
                 check_off_toggleButtons("sat", toggleButtonArrayList);
+                main_display_adapter.update_schedule_display(view.getTag().toString());
                 break;
 
         }

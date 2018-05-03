@@ -21,6 +21,14 @@ public class main_listview_adapter extends BaseAdapter {
     private ArrayList<String> current_schedule = new ArrayList<>();
     //private ArrayList<main_listview_item> current_schedule = new ArrayList<>();
 
+    private ArrayList<String> monday_schedule = new ArrayList<>();
+    private ArrayList<String> tuesday_schedule = new ArrayList<>();
+    private ArrayList<String> wednesday_schedule = new ArrayList<>();
+    private ArrayList<String> thursday_schedule = new ArrayList<>();
+    private ArrayList<String> friday_schedule = new ArrayList<>();
+    private ArrayList<String> satday_schedule = new ArrayList<>();
+    private ArrayList<String> sunday_schedule = new ArrayList<>();
+
     /*private ArrayList<main_listview_item> monday_schedule = new ArrayList<>();
     private ArrayList<main_listview_item> tuesday_schedule = new ArrayList<>();
     private ArrayList<main_listview_item> wednesday_schedule = new ArrayList<>();
@@ -29,6 +37,7 @@ public class main_listview_adapter extends BaseAdapter {
     private ArrayList<main_listview_item> satday_schedule = new ArrayList<>();
     private ArrayList<main_listview_item> sunday_schedule = new ArrayList<>();
     */
+
 
     private LayoutInflater inflater;
 
@@ -43,6 +52,21 @@ public class main_listview_adapter extends BaseAdapter {
         current_schedule.add("sample4");
         current_schedule.add("sample5");
 
+        monday_schedule.add("monday sample1");
+        monday_schedule.add("monday sample2");
+        monday_schedule.add("monday sample3");
+        monday_schedule.add("monday sample4");
+
+        tuesday_schedule.add("tuesday sample4");
+        tuesday_schedule.add("monday sample4");
+
+        wednesday_schedule.add("wed_sample");
+        wednesday_schedule.add("wed1_sample");
+        wednesday_schedule.add("wed2_sample");
+
+        thursday_schedule.add("thursday_sample");
+        thursday_schedule.add("thursday1_sample");
+        thursday_schedule.add("thursday2_sample");
     }
 
     @Override
@@ -79,7 +103,7 @@ public class main_listview_adapter extends BaseAdapter {
         return view;
     }
 
-    /*
+/*
     public void add_schedule(main_listview_item item){
         switch(item.getDay()){
             case "monday":
@@ -106,6 +130,42 @@ public class main_listview_adapter extends BaseAdapter {
         }
         notifyDataSetChanged();
     }
+    */
+
+    public void update_schedule_display(String day){
+        switch(day){
+            case "monday":
+                Toast.makeText(mContext, "mon", Toast.LENGTH_LONG).show();
+                current_schedule =monday_schedule;
+                break;
+            case "tuesday":
+                Toast.makeText(mContext, "tues", Toast.LENGTH_LONG).show();
+                current_schedule =tuesday_schedule;
+                break;
+            case "wednesday":
+                Toast.makeText(mContext, "wed", Toast.LENGTH_LONG).show();
+                current_schedule =wednesday_schedule;
+                break;
+            case "thursday":
+                Toast.makeText(mContext, "thurs", Toast.LENGTH_LONG).show();
+                current_schedule =thursday_schedule;
+                break;
+            case "friday":
+                Toast.makeText(mContext, "fri", Toast.LENGTH_LONG).show();
+                current_schedule =friday_schedule;
+                break;
+            case "saturday":
+                Toast.makeText(mContext, "sat", Toast.LENGTH_LONG).show();
+                current_schedule =satday_schedule;
+                break;
+            case "sunday":
+                Toast.makeText(mContext, "sun", Toast.LENGTH_LONG).show();
+                current_schedule =sunday_schedule;
+                break;
+        }
+        notifyDataSetChanged();
+    }
+
 /*
     public void update_schedule_display(String day){
         switch(day){
