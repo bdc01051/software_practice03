@@ -379,7 +379,6 @@
                 android:layout_gravity="center_horizontal|bottom"
                 android:layout_marginBottom="14mm"
                 android:text="TIME"
-
                 android:textColor="@color/white"
                 android:background="@drawable/set_time_round_btn"/>
 

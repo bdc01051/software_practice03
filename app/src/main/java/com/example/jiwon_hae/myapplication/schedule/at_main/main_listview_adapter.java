@@ -135,65 +135,27 @@ public class main_listview_adapter extends BaseAdapter {
     public void update_schedule_display(String day){
         switch(day){
             case "monday":
-                Toast.makeText(mContext, "mon", Toast.LENGTH_LONG).show();
                 current_schedule =monday_schedule;
                 break;
             case "tuesday":
-                Toast.makeText(mContext, "tues", Toast.LENGTH_LONG).show();
                 current_schedule =tuesday_schedule;
                 break;
             case "wednesday":
-                Toast.makeText(mContext, "wed", Toast.LENGTH_LONG).show();
                 current_schedule =wednesday_schedule;
                 break;
             case "thursday":
-                Toast.makeText(mContext, "thurs", Toast.LENGTH_LONG).show();
                 current_schedule =thursday_schedule;
                 break;
             case "friday":
-                Toast.makeText(mContext, "fri", Toast.LENGTH_LONG).show();
                 current_schedule =friday_schedule;
                 break;
             case "saturday":
-                Toast.makeText(mContext, "sat", Toast.LENGTH_LONG).show();
                 current_schedule =satday_schedule;
                 break;
             case "sunday":
-                Toast.makeText(mContext, "sun", Toast.LENGTH_LONG).show();
                 current_schedule =sunday_schedule;
                 break;
         }
         notifyDataSetChanged();
     }
-
-/*
-    public void update_schedule_display(String day){
-        switch(day){
-            case "monday":
-                current_schedule =monday_schedule;
-                break;
-            case "tuesday":
-                current_schedule = tuesday_schedule;
-                break;
-            case "wednesday":
-                current_schedule = wednesday_schedule;
-                break;
-            case "thursday":
-                current_schedule = thursday_schedule;
-                break;
-            case "friday":
-                current_schedule = friday_schedule;
-                break;
-            case "saturday":
-                current_schedule = satday_schedule;
-                break;
-            case "sunday":
-                current_schedule = sunday_schedule;
-                break;
-        }
-        notifyDataSetChanged();
-    }
-    */
-
-
 }

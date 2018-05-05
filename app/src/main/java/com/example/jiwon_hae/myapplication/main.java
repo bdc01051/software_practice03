@@ -34,6 +34,7 @@ import com.example.jiwon_hae.myapplication.tmap.map_navigation;
 import com.example.jiwon_hae.myapplication.tmap.tmap;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import static com.example.jiwon_hae.myapplication.utility.PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION;
 
@@ -70,6 +71,49 @@ public class main extends AppCompatActivity {
         main_schedule_display.setAdapter(main_display_adapter);
 
         // Example of a call to a native method
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        getToday_day();
+    }
+
+    private void getToday_day(){
+        Calendar calendar = Calendar.getInstance();
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+
+        switch(day){
+            case Calendar.SUNDAY:
+                check_off_toggleButtons("sun", toggleButtonArrayList);
+                main_display_adapter.update_schedule_display("sunday");
+                break;
+            case Calendar.MONDAY:
+                check_off_toggleButtons("mon", toggleButtonArrayList);
+                main_display_adapter.update_schedule_display("monday");
+                break;
+            case Calendar.TUESDAY:
+                check_off_toggleButtons("tues", toggleButtonArrayList);
+                main_display_adapter.update_schedule_display("tuesday");
+                break;
+            case Calendar.WEDNESDAY:
+                check_off_toggleButtons("wed", toggleButtonArrayList);
+                main_display_adapter.update_schedule_display("wednesday");
+                break;
+            case Calendar.THURSDAY:
+                check_off_toggleButtons("thurs", toggleButtonArrayList);
+                main_display_adapter.update_schedule_display("thursday");
+                break;
+            case Calendar.FRIDAY:
+                check_off_toggleButtons("fri", toggleButtonArrayList);
+                main_display_adapter.update_schedule_display("friday");
+                break;
+            case Calendar.SATURDAY:
+                check_off_toggleButtons("sat", toggleButtonArrayList);
+                main_display_adapter.update_schedule_display("saturday");
+                break;
+        }
     }
 
     private void setImageButtons(){
@@ -136,6 +180,8 @@ public class main extends AppCompatActivity {
                 for(int i = 0; i < toggleButtons.size() ; i++){
                     if(i != 0){
                         toggleButtons.get(i).setChecked(false);
+                    }else{
+                        toggleButtons.get(i).setChecked(true);
                     }
                 }
                 break;
@@ -143,6 +189,8 @@ public class main extends AppCompatActivity {
                 for(int i = 0; i < toggleButtons.size() ; i++){
                     if(i != 1){
                         toggleButtons.get(i).setChecked(false);
+                    }else{
+                        toggleButtons.get(i).setChecked(true);
                     }
                 }
                 break;
@@ -150,6 +198,8 @@ public class main extends AppCompatActivity {
                 for(int i = 0; i < toggleButtons.size() ; i++){
                     if(i != 2){
                         toggleButtons.get(i).setChecked(false);
+                    }else{
+                        toggleButtons.get(i).setChecked(true);
                     }
                 }
                 break;
@@ -157,6 +207,8 @@ public class main extends AppCompatActivity {
                 for(int i = 0; i < toggleButtons.size() ; i++){
                     if(i != 3){
                         toggleButtons.get(i).setChecked(false);
+                    }else{
+                        toggleButtons.get(i).setChecked(true);
                     }
                 }
                 break;
@@ -164,6 +216,8 @@ public class main extends AppCompatActivity {
                 for(int i = 0; i < toggleButtons.size() ; i++){
                     if(i != 4){
                         toggleButtons.get(i).setChecked(false);
+                    }else{
+                        toggleButtons.get(i).setChecked(true);
                     }
                 }
                 break;
@@ -171,6 +225,8 @@ public class main extends AppCompatActivity {
                 for(int i = 0; i < toggleButtons.size() ; i++){
                     if(i != 5){
                         toggleButtons.get(i).setChecked(false);
+                    }else{
+                        toggleButtons.get(i).setChecked(true);
                     }
                 }
                 break;
@@ -178,6 +234,8 @@ public class main extends AppCompatActivity {
                 for(int i = 0; i < toggleButtons.size() ; i++){
                     if(i != 6){
                         toggleButtons.get(i).setChecked(false);
+                    }else{
+                        toggleButtons.get(i).setChecked(true);
                     }
                 }
                 break;
@@ -187,7 +245,6 @@ public class main extends AppCompatActivity {
 
     public void setToggleActions(View view){
         ToggleButton s = (ToggleButton) view;
-        boolean isChecked = s.isChecked();
 
         switch (view.getId()){
             case R.id.toggle_btn_sunday:
